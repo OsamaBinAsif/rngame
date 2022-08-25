@@ -46,7 +46,11 @@ export default function App() {
 
   if (userNumber) {
     screen = (
-      <GameScreen userNumber={userNumber} gameOverHandler={gameOverHandler} totalRoundsHandler={totalRoundsHandler}/>
+      <GameScreen
+        userNumber={userNumber}
+        gameOverHandler={gameOverHandler}
+        totalRoundsHandler={totalRoundsHandler}
+      />
     );
   }
 
@@ -61,19 +65,22 @@ export default function App() {
   }
 
   return (
-    <LinearGradient
-      colors={[Colors.primary700, Colors.accent500]}
-      style={styles.container}
-    >
-      <ImageBackground
-        source={require("./assets/images/background.png")}
-        resizeMode="cover"
-        style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
+    <>
+      <StatusBar style="auto" />
+      <LinearGradient
+        colors={[Colors.primary700, Colors.accent500]}
+        style={styles.container}
       >
-        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require("./assets/images/background.png")}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={styles.backgroundImage}
+        >
+          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
